@@ -30,6 +30,7 @@ jobs:
 
     # 4️⃣ Build and Test Angular (UPDATED PATH)
     - name: Build and Test Angular App
+      working-directory: transaction-ui
       run: |
         npm install
         npm test -- --watch=false
