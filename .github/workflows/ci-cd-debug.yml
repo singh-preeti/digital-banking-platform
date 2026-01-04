@@ -1,0 +1,22 @@
+name: Debug CI Structure
+
+on: [push]
+
+jobs:
+  print-structure:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Print the repository tree
+      run: |
+        echo "Working Dir:"
+        pwd
+        echo "List root:"
+        ls -R
+
+        echo "Find package.json:"
+        find . -name "package.json"
+
+        echo "Find pom.xml:"
+        find . -name "pom.xml"
