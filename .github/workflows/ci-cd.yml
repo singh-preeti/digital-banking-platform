@@ -32,10 +32,12 @@ jobs:
         npm install
         npm run build
 
-    - name: Build Spring Boot App
-      working-directory: digital-banking-platform/backend
+    # 5️⃣ Build Spring Boot Backend
+    - name: Build Spring Boot
+      working-directory: banking-transaction
       run: mvn clean package
 
+    # 6️⃣ Run Backend Tests
     - name: Run Backend Tests
-      working-directory: digital-banking-platform/backend
+      working-directory: banking-transaction
       run: mvn test
