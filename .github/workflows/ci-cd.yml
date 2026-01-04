@@ -25,16 +25,17 @@ jobs:
       with:
         node-version: 20
 
-    - name: Build Angular
-      working-directory: transaction-ui
+    # ✅ CORRECTED ANGULAR PATH (ONE LEVEL DEEPER)
+    - name: Build Angular App
+      working-directory: digital-banking-platform/transaction-ui/transaction-ui
       run: |
         npm install
         npm run build
 
-    - name: Build Spring Boot
-      working-directory: backend
+    - name: Build Spring Boot App
+      working-directory: digital-banking-platform/backend
       run: mvn clean package
 
     - name: Run Backend Tests
-      working-directory: backend
+      working-directory: digital-banking-platform/backend
       run: mvn test
