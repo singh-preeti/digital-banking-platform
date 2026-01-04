@@ -11,36 +11,43 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # 1️⃣ Checkout code
+    # 1️⃣ Checkout repository
     - name: Checkout code
       uses: actions/checkout@v3
 
-    # 2️⃣ Setup Java
+    # 2️⃣ Debug structure (KEEP for now, remove later)
+    - name: Debug repo structure
+      run: |
+        echo "Repository root:"
+        pwd
+        ls -R
+
+    # 3️⃣ Setup Java for Spring Boot
     - name: Setup JDK 17
       uses: actions/setup-java@v3
       with:
         distribution: temurin
         java-version: 17
 
-    # 3️⃣ Setup Node.js
+    # 4️⃣ Setup Node.js for Angular
     - name: Setup Node.js 20
       uses: actions/setup-node@v3
       with:
         node-version: 20
 
-    # 4️⃣ Build Angular
+    # 5️⃣ Build Angular (NESTED PATH)
     - name: Build Angular App
-      working-directory: transaction-ui
+      working-directory: digital-banking-platform/transaction-ui
       run: |
         npm install
         npm run build
 
-    # 5️⃣ Build Spring Boot
+    # 6️⃣ Build Spring Boot (NESTED PATH)
     - name: Build Spring Boot App
-      working-directory: backend
+      working-directory: digital-banking-platform/backend
       run: mvn clean package
 
-    # 6️⃣ Run Backend Tests
+    # 7️⃣ Run Backend Tests
     - name: Run Backend Tests
-      working-directory: backend
+      working-directory: digital-banking-platform/backend
       run: mvn test
