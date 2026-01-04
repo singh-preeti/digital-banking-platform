@@ -1,0 +1,16 @@
+<h3>Transaction History</h3>
+<input [(ngModel)]="id" placeholder="Account ID">
+<button (click)="load()">Load</button>
+
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Type</th>
+    <th>Amount</th>
+  </tr>
+  <tr *ngFor="let t of transactions">
+    <td>{{t.id}}</td>
+    <td>{{t.type}}</td>
+    <td>{{t.amount}}</td>
+  </tr>
+</table>

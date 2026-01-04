@@ -1,0 +1,12 @@
+<h3>Deposit / Withdraw</h3>
+<input [(ngModel)]="id" placeholder="Account ID">
+<input [(ngModel)]="amt" placeholder="Amount">
+<button (click)="deposit()">Deposit</button>
+<button (click)="withdraw()">Withdraw</button>
+
+<h3>Transfer</h3>
+<input [(ngModel)]="from" placeholder="From Account">
+<input [(ngModel)]="to" placeholder="To Account">
+<input [(ngModel)]="amt" placeholder="Amount">
+<button (click)="transfer()">Transfer</button>
+<hr>
