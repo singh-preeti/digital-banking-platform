@@ -27,7 +27,7 @@ jobs:
 
     # ✅ CORRECTED ANGULAR PATH (ONE LEVEL DEEPER)
     - name: Build Angular App
-      working-directory: digital-banking-platform/transaction-ui/transaction-ui
+      working-directory: digital-banking-platform/transaction-ui
       run: |
         npm install
         npm run build
