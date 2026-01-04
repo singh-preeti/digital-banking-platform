@@ -1,4 +1,38 @@
- - name: Build Angular App
+name: BankingApp CI/CD
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1️⃣ Checkout repository
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # 2️⃣ Setup Java for Spring Boot
+    - name: Setup JDK 17
+      uses: actions/setup-java@v3
+      with:
+        distribution: temurin
+        java-version: 17
+
+    # 3️⃣ Setup Node.js for Angular
+    - name: Setup Node.js 20
+      uses: actions/setup-node@v3
+      with:
+        node-version: 20
+
+    # Debug: Check transaction-ui directory
+    - name: Check transaction-ui directory
+      run: ls -la transaction-ui
+
+    - name: Build Angular App
       working-directory: digital-banking-platform/transaction-ui/transaction-ui
       run: |
         npm install
@@ -10,4 +44,7 @@
 
     - name: Run Backend Tests
       working-directory: digital-banking-platform/backend
+      run: mvn test
+    - name: Run Backend Tests
+      working-directory: backend
       run: mvn test
