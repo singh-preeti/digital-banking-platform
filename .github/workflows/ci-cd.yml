@@ -27,7 +27,7 @@ jobs:
 
     - name: Build Angular
       run: |
-        cd banking-frontend
+        cd transaction-ui
         npm install
         npm run build -- --prod
 
