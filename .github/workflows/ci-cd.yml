@@ -21,7 +21,6 @@ jobs:
       with:
         distribution: temurin
         java-version: 17
-        cache: maven
 
     # 3️⃣ Setup Node.js for Angular
     - name: Setup Node.js 20
