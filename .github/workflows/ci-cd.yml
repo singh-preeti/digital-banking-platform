@@ -28,6 +28,10 @@ jobs:
       with:
         node-version: 20
 
+    # Debug: Check transaction-ui directory
+    - name: Check transaction-ui directory
+      run: ls -la transaction-ui
+
     # 4️⃣ Build and Test Angular (UPDATED PATH)
     - name: Build and Test Angular App
       working-directory: transaction-ui
