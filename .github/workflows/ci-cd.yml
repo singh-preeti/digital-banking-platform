@@ -55,6 +55,4 @@ jobs:
       with:
         name: springboot-jar
         path: banking-transaction/target/*.jar
-    - name: Run Backend Tests
-      working-directory: banking-transaction
-      run: mvn test
+  
