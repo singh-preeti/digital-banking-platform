@@ -37,7 +37,24 @@ jobs:
       working-directory: banking-transaction
       run: mvn clean package
 
-    # 6️⃣ Run Backend Tests
+   # 6️⃣ Run Backend Tests
+    - name: Run Backend Tests
+      working-directory: banking-transaction
+      run: mvn test
+
+       # CD - Upload Angular Artifact
+    - name: Upload Angular Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: angular-build
+        path: transaction-ui/dist
+
+    # CD - Upload Spring Boot Artifact
+    - name: Upload Backend Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: springboot-jar
+        path: banking-transaction/target/*.jar
     - name: Run Backend Tests
       working-directory: banking-transaction
       run: mvn test
